@@ -7,7 +7,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-The software does not require installation and can be run portably. The latest release can be found [here](https://github.com/SCLDGit/UnitCalculator/releases/download/v2023.1/UnitCalculator.exe)
+The software does not require installation and can be run portably. The latest release can be found [here](https://github.com/SCLDGit/UnitCalculator/releases/download/v2023.1/UnitCalculator.exe).
 
 
 End with an example of getting some data out of the system or using it for a little demo.

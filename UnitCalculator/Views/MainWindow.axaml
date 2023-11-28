@@ -1,0 +1,293 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:UnitCalculator.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:calculatedDateItems="clr-namespace:UnitCalculator.Models.DataStructures.CalculatedDateItems"
+        xmlns:converters="clr-namespace:UnitCalculator.Views.Converters"
+        xmlns:controls="clr-namespace:UnitCalculator.Views.Controls"
+        xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        SizeToContent="WidthAndHeight"
+        MinHeight="300"
+        MinWidth="500"
+        x:Class="UnitCalculator.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Unit Calculator">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+    <Window.Resources>
+        <converters:UnitConverter x:Key="UnitConverter" />
+    </Window.Resources>
+
+    <Window.Styles>
+        <Style Selector="Grid.rowPresenter">
+            <Setter Property="Margin" Value="0, 0, 0, 2"></Setter>
+        </Style>
+        <Style Selector="TextBlock.label">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Margin" Value="0, 0, 5, 0"></Setter>
+        </Style>
+    </Window.Styles>
+
+    <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, *, Auto"
+          IsSharedSizeScope="True"
+          Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition SharedSizeGroup="Label"
+                              Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0"
+              Grid.Column="0"
+              Classes="rowPresenter">
+            <TextBlock Classes="label"
+                       Text="Start Date:" />
+        </Grid>
+        <Grid Grid.Row="0"
+              Grid.Column="1"
+              Classes="rowPresenter">
+            <CalendarDatePicker HorizontalAlignment="Stretch"
+                                SelectedDate="{Binding StartDate}" />
+        </Grid>
+        <Grid Grid.Row="1"
+              Grid.Column="0"
+              Classes="rowPresenter">
+            <TextBlock Classes="label"
+                       Text="End Date:" />
+        </Grid>
+        <Grid Grid.Row="1"
+              Grid.Column="1"
+              Classes="rowPresenter">
+            <CalendarDatePicker HorizontalAlignment="Stretch"
+                                SelectedDate="{Binding EndDate}" />
+        </Grid>
+        <Grid Grid.Row="2"
+              Grid.Column="0"
+              Classes="rowPresenter">
+            <TextBlock Classes="label"
+                       Text="Monday Hours:" />
+        </Grid>
+        <Grid Grid.Row="2"
+              Grid.Column="1"
+              Classes="rowPresenter">
+            <NumericUpDown HorizontalAlignment="Right"
+                           MinWidth="80"
+                           ClipValueToMinMax="True"
+                           Minimum="0"
+                           Maximum="24"
+                           Value="{Binding MondayHours}" />
+        </Grid>
+        <Grid Grid.Row="3"
+              Grid.Column="0"
+              Classes="rowPresenter">
+            <TextBlock Classes="label"
+                       Text="Tuesday Hours:" />
+        </Grid>
+        <Grid Grid.Row="3"
+              Grid.Column="1"
+              Classes="rowPresenter">
+            <NumericUpDown HorizontalAlignment="Right"
+                           MinWidth="80"
+                           ClipValueToMinMax="True"
+                           Minimum="0"
+                           Maximum="24"
+                           Value="{Binding TuesdayHours}" />
+        </Grid>
+        <Grid Grid.Row="4"
+              Grid.Column="0"
+              Classes="rowPresenter">
+            <TextBlock Classes="label"
+                       Text="Wednesday Hours:" />
+        </Grid>
+        <Grid Grid.Row="4"
+              Grid.Column="1"
+              Classes="rowPresenter">
+            <NumericUpDown HorizontalAlignment="Right"
+                           MinWidth="80"
+                           ClipValueToMinMax="True"
+                           Minimum="0"
+                           Maximum="24"
+                           Value="{Binding WednesdayHours}" />
+        </Grid>
+        <Grid Grid.Row="5"
+              Grid.Column="0"
+              Classes="rowPresenter">
+            <TextBlock Classes="label"
+                       Text="Thursday Hours:" />
+        </Grid>
+        <Grid Grid.Row="5"
+              Grid.Column="1"
+              Classes="rowPresenter">
+            <NumericUpDown HorizontalAlignment="Right"
+                           MinWidth="80"
+                           ClipValueToMinMax="True"
+                           Minimum="0"
+                           Maximum="24"
+                           Value="{Binding ThursdayHours}" />
+        </Grid>
+        <Grid Grid.Row="6"
+              Grid.Column="0"
+              Classes="rowPresenter">
+            <TextBlock Classes="label"
+                       Text="Friday Hours:" />
+        </Grid>
+        <Grid Grid.Row="6"
+              Grid.Column="1"
+              Classes="rowPresenter">
+            <NumericUpDown HorizontalAlignment="Right"
+                           MinWidth="80"
+                           ClipValueToMinMax="True"
+                           Minimum="0"
+                           Maximum="24"
+                           Value="{Binding FridayHours}" />
+        </Grid>
+        <Grid Grid.Row="7"
+              Grid.Column="0"
+              Classes="rowPresenter">
+            <TextBlock Classes="label"
+                       Text="Saturday Hours:" />
+        </Grid>
+        <Grid Grid.Row="7"
+              Grid.Column="1"
+              Classes="rowPresenter">
+            <NumericUpDown HorizontalAlignment="Right"
+                           MinWidth="80"
+                           ClipValueToMinMax="True"
+                           Minimum="0"
+                           Maximum="24"
+                           Value="{Binding SaturdayHours}" />
+        </Grid>
+        <Grid Grid.Row="8"
+              Grid.Column="0"
+              Classes="rowPresenter">
+            <TextBlock Classes="label"
+                       Text="Sunday Hours:" />
+        </Grid>
+        <Grid Grid.Row="8"
+              Grid.Column="1"
+              Classes="rowPresenter">
+            <NumericUpDown HorizontalAlignment="Right"
+                           MinWidth="80"
+                           ClipValueToMinMax="True"
+                           Minimum="0"
+                           Maximum="24"
+                           Value="{Binding SundayHours}" />
+        </Grid>
+        <Grid Grid.Row="9"
+              Grid.Column="0"
+              Grid.ColumnSpan="2"
+              Classes="rowPresenter">
+            <Button HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Center"
+                    Content="Calculate"
+                    IsEnabled="{Binding ValidationContext.IsValid}"
+                    Command="{Binding ClickCalculateUnits}" />
+        </Grid>
+        <Grid Grid.Row="10"
+              Grid.Column="0"
+              Grid.ColumnSpan="2"
+              Classes="rowPresenter"
+              IsVisible="{Binding ResultsHaveBeenCalculated}"
+              RowDefinitions="Auto, *">
+            <Grid Grid.Row="0"
+                  ColumnDefinitions="*, Auto, Auto, Auto, *">
+                <TextBlock Grid.Column="1"
+                           VerticalAlignment="Center"
+                           Margin="0, 0, 10, 0"
+                           FontWeight="Bold"
+                           Text="Hours" />
+                <ToggleSwitch Grid.Column="2"
+                              VerticalAlignment="Center"
+                              IsChecked="{Binding ToggleIsEnabled}"
+                              OnContent=""
+                              OffContent="" />
+                <TextBlock Grid.Column="3"
+                           VerticalAlignment="Center"
+                           FontWeight="Bold"
+                           Text="Units" />
+            </Grid>
+            <Grid Grid.Row="1"
+                  ColumnDefinitions="Auto, *">
+                <Border Grid.Column="0"
+                        BorderThickness="2"
+                        BorderBrush="DimGray">
+                    <ListBox x:Name="ParentBox"
+                             ItemsSource="{Binding Months}"
+                             SelectedItem="{Binding SelectedMonth}">
+                        <ListBox.DataTemplates>
+                            <DataTemplate DataType="calculatedDateItems:CalculatedMonth">
+                                <Grid ColumnDefinitions="Auto, Auto, *">
+                                    <TextBlock Grid.Column="0"
+                                               Text="{Binding Month}"
+                                               Margin="0, 0, 5, 0" />
+                                    <TextBlock Grid.Column="1"
+                                               Text="{Binding Year}"
+                                               Margin="0, 0, 10, 0" />
+                                    <TextBlock Grid.Column="2"
+                                               HorizontalAlignment="Right">
+                                        <TextBlock.Text>
+                                            <MultiBinding Converter="{StaticResource UnitConverter}">
+                                                <Binding ElementName="ParentBox" Path="DataContext.ToggleIsEnabled" />
+                                                <Binding />
+                                            </MultiBinding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.DataTemplates>
+                    </ListBox>
+                </Border>
+                <Grid Grid.Column="1"
+                      x:Name="ParentGrid">
+                    <Border BorderBrush="DimGray"
+                            BorderThickness="2"
+                            Padding="5"
+                            Margin="10, 0, 0, 0">
+                        <ContentPresenter>
+                            <ContentPresenter.Content>
+                                <Binding Path="SelectedMonth">
+                                    <Binding.TargetNullValue>
+                                        <TextBlock VerticalAlignment="Center"
+                                                   HorizontalAlignment="Center"
+                                                   TextAlignment="Center"
+                                                   Text="Select a Month..."/>
+                                    </Binding.TargetNullValue>
+                                </Binding>
+                            </ContentPresenter.Content>
+                            <ContentPresenter.DataTemplates>
+                                <DataTemplate DataType="calculatedDateItems:CalculatedMonth">
+                                    <controls:CalendarControl IsVisible="{Binding DataContext.SelectedMonth, ElementName=ParentGrid, Converter={x:Static ObjectConverters.IsNotNull}}" 
+                                                              Margin="10" 
+                                                              SelectedMonth="{Binding DataContext.SelectedMonth, ElementName=ParentGrid}"
+                                                              ShowUnits="{Binding DataContext.ToggleIsEnabled, ElementName=ParentGrid}"/>
+                                </DataTemplate>
+                            </ContentPresenter.DataTemplates>
+                        </ContentPresenter>
+                    </Border>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="11"
+              Grid.Column="0"
+              Grid.ColumnSpan="2"
+              HorizontalAlignment="Stretch"
+              Classes="rowPresenter">
+            <Button Command="{Binding ClickAboutButton}"
+                    CommandParameter="{Binding $parent[Window]}"
+                    ToolTip.Tip="About"
+                    HorizontalAlignment="Right"
+                    Padding="0"
+                    Width="16"
+                    Height="16">
+                <avalonia:MaterialIcon Kind="HelpCircle"
+                                       Width="14"
+                                       Height="14"/>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>

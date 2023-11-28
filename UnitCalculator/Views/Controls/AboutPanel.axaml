@@ -1,0 +1,49 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Background="#ffdddddd"
+        MaxWidth="650"
+        Padding="8"
+        x:Class="UnitCalculator.Views.Controls.AboutPanel" SizeToContent="WidthAndHeight" CanResize="False"
+        WindowStartupLocation="CenterOwner"
+        SystemDecorations="BorderOnly">
+    
+    <Grid ColumnDefinitions="Auto, *">
+        <avalonia:MaterialIcon Grid.Column="0" 
+                               Kind="Info" 
+                               Width="64" 
+                               Height="64" 
+                               Margin="16"/>
+        <Grid Grid.Column="1"
+              RowDefinitions="Auto, Auto, Auto, *, Auto">
+            <TextBlock Grid.Row="0" 
+                       Margin="0, 0, 0, 10"
+                       TextAlignment="Center"
+                       Text="Copyright 2023 Matt Heimlich (matt.heimlich@gmail.com)"/>
+            <TextBlock Grid.Row="1"
+                       Margin="0, 0, 0, 10"
+                       TextWrapping="WrapWithOverflow"
+                       TextAlignment="Center"
+                       Text="This software is provided 'as-is', without any express or implied warranty." />
+            <TextBlock Grid.Row="2"
+                       Margin="0, 0, 0, 10"
+                       TextWrapping="WrapWithOverflow"
+                       TextAlignment="Center"
+                       Text="In no event shall the author be held liable for any damages arising from the use of this software." />
+            <TextBlock Grid.Row="3"
+                       Margin="0, 0, 0, 10"
+                       TextWrapping="WrapWithOverflow"
+                       TextAlignment="Center"
+                       Text="Please note that this software is no longer being actively maintained or updated. It is offered in its current state and may not be compatible with future updates or integrations. Users may reach out to the author with questions or requests; however, please be aware that these may not be answered due to the lack of ongoing support and maintenance." />
+            <Button Grid.Row="4" 
+                    Content="OK"
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Center"
+                    Click="Button_OnClick"/>
+        </Grid>
+    </Grid>
+        
+</Window>

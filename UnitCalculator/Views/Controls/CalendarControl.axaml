@@ -1,0 +1,60 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="UnitCalculator.Views.Controls.CalendarControl"
+             x:Name="Root">
+    <Grid x:Name="CalendarGrid"
+          RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto"
+          ColumnDefinitions="*, *, *, *, *, *, *">
+        <Grid.Styles>
+            <Style Selector="TextBlock.dayLabel">
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="FontWeight" Value="DemiBold" />
+            </Style>
+        </Grid.Styles>
+        <Grid Grid.Row="0"
+              Grid.Column="0"
+              Grid.ColumnSpan="7"
+              ColumnDefinitions="Auto, Auto"
+              HorizontalAlignment="Center">
+            <TextBlock Grid.Column="0" 
+                       FontWeight="Bold"
+                       Margin="0, 0, 5, 0"
+                       Text="{Binding SelectedMonth.Month, ElementName=Root}"/>
+            <TextBlock Grid.Column="1" 
+                       FontWeight="Bold"
+                       Text="{Binding SelectedMonth.Year, ElementName=Root}"/>
+        </Grid>
+        <TextBlock Grid.Row="1"
+                   Grid.Column="0"
+                   Classes="dayLabel"
+                   Text="Mo" />
+        <TextBlock Grid.Row="1"
+                   Grid.Column="1"
+                   Classes="dayLabel"
+                   Text="Tu" />
+        <TextBlock Grid.Row="1"
+                   Grid.Column="2"
+                   Classes="dayLabel"
+                   Text="We" />
+        <TextBlock Grid.Row="1"
+                   Grid.Column="3"
+                   Classes="dayLabel"
+                   Text="Th" />
+        <TextBlock Grid.Row="1"
+                   Grid.Column="4"
+                   Classes="dayLabel"
+                   Text="Fr" />
+        <TextBlock Grid.Row="1"
+                   Grid.Column="5"
+                   Classes="dayLabel"
+                   Text="Sa" />
+        <TextBlock Grid.Row="1"
+                   Grid.Column="6"
+                   Classes="dayLabel"
+                   Text="Su" />
+    </Grid>
+</UserControl>
